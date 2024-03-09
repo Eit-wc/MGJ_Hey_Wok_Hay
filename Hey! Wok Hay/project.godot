@@ -11,8 +11,13 @@ config_version=5
 [application]
 
 config/name="Hey! Wok Hay"
+run/main_scene="res://Scene/StartMenu.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Global="*res://autoload/Global.gd"
 
 [display]
 

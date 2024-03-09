@@ -11,14 +11,13 @@ func _ready() -> void:
 func _can_drop_data(at_position: Vector2, data: Variant) -> bool:
     return true
     
+@onready var h_box_container: HBoxContainer = $HBoxContainer
 func _drop_data(at_position: Vector2, data: Variant) -> void:
-    var datanode = get_node(str(data.name))
-    if is_instance_valid(datanode):
-        datanode.visible = true
-        data.visible = false
-        countMaterial +=1
-        if countMaterial >= maxMaterial:
-            cook_button.disabled = false
+    h_box_container.add_child(data.duplicate())
+    data.visible = false
+    countMaterial +=1
+    if countMaterial >= maxMaterial:
+        cook_button.disabled = false
     
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
