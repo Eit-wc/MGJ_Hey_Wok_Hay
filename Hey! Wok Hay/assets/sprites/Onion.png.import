@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dxatvi7bkg6uu"
-path="res://.godot/imported/RawRice.png-97c1fa8fa1cfab35283c1d9bd7151225.ctex"
+uid="uid://irrf18p2v1n"
+path="res://.godot/imported/Onion.png-23b119867aa07844f45d9710c1510534.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/RawRice.png"
-dest_files=["res://.godot/imported/RawRice.png-97c1fa8fa1cfab35283c1d9bd7151225.ctex"]
+source_file="res://assets/sprites/Onion.png"
+dest_files=["res://.godot/imported/Onion.png-23b119867aa07844f45d9710c1510534.ctex"]
 
 [params]
 

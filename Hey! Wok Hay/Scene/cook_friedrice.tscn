@@ -1,0 +1,314 @@
+[gd_scene load_steps=11 format=3 uid="uid://i5wn6bmuoai5"]
+
+[ext_resource type="Script" path="res://Scene/cook_friedrice.gd" id="1_agncw"]
+[ext_resource type="PackedScene" uid="uid://b816mpbifmkth" path="res://assets/Material/cooked_rice.tscn" id="2_5rksp"]
+[ext_resource type="PackedScene" uid="uid://cdxkvjc8h8d47" path="res://assets/Material/egg.tscn" id="3_xkx6i"]
+[ext_resource type="PackedScene" uid="uid://wm3dbo1e3giu" path="res://assets/Material/onion.tscn" id="4_62b6p"]
+[ext_resource type="PackedScene" uid="uid://d0tbklfda1vmg" path="res://assets/Material/Sausage.tscn" id="5_7qjip"]
+[ext_resource type="Texture2D" uid="uid://myw2l1owrm31" path="res://assets/sprites/Wok.png" id="6_na6wv"]
+[ext_resource type="Script" path="res://assets/DragableItem/DropArea.gd" id="7_pnned"]
+[ext_resource type="Script" path="res://Scene/GuideLabel.gd" id="8_nyy5g"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6v2qg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_okv5o"]
+bg_color = Color(0.956863, 0.737255, 0, 0.882353)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[node name="CookFriedRice" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_agncw")
+
+[node name="Score" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.226
+anchor_bottom = 0.131
+offset_left = 31.0
+offset_top = 17.0
+offset_right = 30.648
+offset_bottom = 17.112
+text = "SCORE:"
+vertical_alignment = 1
+
+[node name="Time" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.391
+anchor_top = 0.117
+anchor_right = 0.535
+anchor_bottom = 0.201
+offset_left = 21.568
+offset_top = -10.816
+offset_right = 20.68
+offset_bottom = -11.248
+text = "00:00"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Process" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.277
+anchor_top = 0.019
+anchor_right = 0.748
+anchor_bottom = 0.102
+offset_left = -0.104004
+offset_top = -31.312
+offset_right = 0.303955
+offset_bottom = -0.0960007
+text = "(3) Cook chinese sausage fried rice"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.025
+anchor_top = 0.222
+anchor_right = 0.109
+anchor_bottom = 0.921
+offset_left = 0.199999
+offset_top = 0.143982
+offset_right = 0.431992
+offset_bottom = 0.191956
+grow_vertical = 2
+
+[node name="Panel1" type="Panel" parent="VBoxContainer"]
+custom_minimum_size = Vector2(97, 97)
+layout_mode = 2
+
+[node name="CookedRice" parent="VBoxContainer/Panel1" instance=ExtResource("2_5rksp")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = 0.0
+
+[node name="Panel2" type="Panel" parent="VBoxContainer"]
+custom_minimum_size = Vector2(97, 97)
+layout_mode = 2
+
+[node name="Egg" parent="VBoxContainer/Panel2" instance=ExtResource("3_xkx6i")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = 0.0
+
+[node name="Panel3" type="Panel" parent="VBoxContainer"]
+custom_minimum_size = Vector2(97, 97)
+layout_mode = 2
+
+[node name="Onion" parent="VBoxContainer/Panel3" instance=ExtResource("4_62b6p")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = 0.0
+
+[node name="Panel4" type="Panel" parent="VBoxContainer"]
+custom_minimum_size = Vector2(97, 97)
+layout_mode = 2
+
+[node name="Sausage" parent="VBoxContainer/Panel4" instance=ExtResource("5_7qjip")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = 0.0
+
+[node name="Wok" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.302
+anchor_top = 0.19
+anchor_right = 0.764
+anchor_bottom = 0.812
+offset_left = 18.096
+offset_top = -21.12
+offset_right = -104.128
+offset_bottom = -21.176
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_na6wv")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="DropArea" type="PanelContainer" parent="Wok"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.002
+anchor_top = 0.084
+anchor_right = 0.993
+anchor_bottom = 0.377
+offset_left = -0.18
+offset_top = 0.147999
+offset_right = -0.130005
+offset_bottom = 0.0690155
+theme_override_styles/panel = SubResource("StyleBoxEmpty_6v2qg")
+script = ExtResource("7_pnned")
+maxMaterial = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Wok/DropArea"]
+layout_mode = 2
+alignment = 1
+
+[node name="HSlider" type="HSlider" parent="."]
+layout_mode = 0
+offset_left = 295.0
+offset_top = 536.0
+offset_right = 824.0
+offset_bottom = 562.0
+step = 25.0
+tick_count = 5
+
+[node name="Low" type="Label" parent="HSlider"]
+layout_mode = 0
+offset_left = 64.0
+offset_top = -50.0
+offset_right = 162.0
+offset_bottom = -1.0
+text = "Low"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Mid" type="Label" parent="HSlider"]
+layout_mode = 0
+offset_left = 194.0
+offset_top = -52.0
+offset_right = 333.0
+offset_bottom = -3.0
+text = "Medium"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="High" type="Label" parent="HSlider"]
+layout_mode = 0
+offset_left = 364.0
+offset_top = -49.0
+offset_right = 462.0
+text = "High"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CookButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.841
+anchor_top = 0.745
+anchor_right = 0.93
+anchor_bottom = 0.833
+offset_left = -86.832
+offset_top = 73.24
+offset_right = -87.36
+offset_bottom = 73.216
+disabled = true
+text = "Cook!"
+
+[node name="Retry" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.866
+anchor_top = 0.028
+anchor_right = 0.96
+anchor_bottom = 0.116
+offset_left = 0.36792
+offset_top = -0.144001
+offset_right = 0.0799561
+offset_bottom = -0.167999
+text = "Retry!"
+
+[node name="ScoreBar" type="ProgressBar" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.757
+anchor_top = 0.349
+anchor_right = 0.803
+anchor_bottom = 0.744
+offset_left = -0.0640259
+offset_top = 255.848
+offset_right = 202.944
+offset_bottom = 52.888
+rotation = -1.5708
+show_percentage = false
+
+[node name="WokBar" type="ProgressBar" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.824
+anchor_top = 0.165
+anchor_right = 0.87
+anchor_bottom = 0.759
+offset_left = -0.248169
+offset_top = 385.08
+offset_right = 331.76
+offset_bottom = 53.168
+rotation = -1.5708
+theme_override_styles/fill = SubResource("StyleBoxFlat_okv5o")
+value = 80.0
+show_percentage = false
+
+[node name="Line2D" type="Line2D" parent="WokBar"]
+position = Vector2(238, 37)
+points = PackedVector2Array(0, -40, 0, 40)
+width = 5.0
+default_color = Color(0.117647, 0.933333, 0, 1)
+
+[node name="Line2D2" type="Line2D" parent="WokBar"]
+position = Vector2(302, 40)
+points = PackedVector2Array(0, -40, 0, 40)
+width = 5.0
+default_color = Color(0.117647, 0.933333, 0, 1)
+
+[node name="Label" type="Label" parent="WokBar"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 0.584906
+anchor_right = 1.0
+anchor_bottom = 0.584906
+offset_left = -61.0
+offset_top = 35.0
+offset_right = 68.0
+offset_bottom = 136.0
+rotation = 1.5708
+theme_override_font_sizes/font_size = 20
+text = "Nice
+tassing!"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="GuideLabel" type="Label" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.865
+anchor_top = 0.798
+anchor_right = 0.997
+anchor_bottom = 0.873
+offset_left = -155.48
+offset_top = -12.104
+offset_right = -127.544
+offset_bottom = -11.704
+theme_override_font_sizes/font_size = 22
+text = "don't push"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("8_nyy5g")
+
+[connection signal="pressed" from="CookButton" to="." method="_on_cook_button_pressed"]
+[connection signal="pressed" from="Retry" to="." method="_on_retry_pressed"]

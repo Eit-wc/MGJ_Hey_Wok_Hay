@@ -4,15 +4,15 @@
 [ext_resource type="Script" path="res://assets/DragableItem/DragableItem.gd" id="2_6geuq"]
 
 [node name="Water" type="TextureRect"]
-custom_minimum_size = Vector2(120, 120)
+custom_minimum_size = Vector2(100, 100)
 anchors_preset = -1
-anchor_right = 0.104
-anchor_bottom = 0.185
-offset_right = 0.192001
-offset_bottom = 0.119995
+anchor_right = 0.087
+anchor_bottom = 0.154
+offset_right = -0.224007
+offset_bottom = 0.207993
 grow_horizontal = 2
 grow_vertical = 2
-pivot_offset = Vector2(60, 60)
+pivot_offset = Vector2(50, 50)
 texture = ExtResource("1_cytm7")
 expand_mode = 1
 stretch_mode = 5

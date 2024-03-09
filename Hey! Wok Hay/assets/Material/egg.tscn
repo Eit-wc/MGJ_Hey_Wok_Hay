@@ -1,16 +1,19 @@
 [gd_scene load_steps=3 format=3 uid="uid://cdxkvjc8h8d47"]
 
-[ext_resource type="Texture2D" uid="uid://cacgincvlofiu" path="res://assets/sprites/CookedSausage.png" id="1_3cq7k"]
+[ext_resource type="Texture2D" uid="uid://b78skl352vib0" path="res://assets/sprites/Egg.png" id="1_1534r"]
 [ext_resource type="Script" path="res://assets/DragableItem/DragableItem.gd" id="2_pphew"]
 
 [node name="Egg" type="TextureRect"]
-custom_minimum_size = Vector2(95, 95)
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+custom_minimum_size = Vector2(100, 100)
+anchors_preset = -1
+anchor_right = 0.087
+anchor_bottom = 0.154
+offset_right = -0.224007
+offset_bottom = 0.207993
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_3cq7k")
+pivot_offset = Vector2(50, 50)
+texture = ExtResource("1_1534r")
 expand_mode = 1
 stretch_mode = 5
 script = ExtResource("2_pphew")

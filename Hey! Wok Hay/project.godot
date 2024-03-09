@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="Hey! Wok Hay"
+config/tags=PackedStringArray("gamejam", "hidev", "hobby")
 run/main_scene="res://Scene/StartMenu.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
@@ -21,6 +22,7 @@ Global="*res://autoload/Global.gd"
 
 [display]
 
+window/stretch/mode="canvas_items"
 window/stretch/scale_mode="integer"
 
 [gui]

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cacgincvlofiu"
-path="res://.godot/imported/CookedSausage.png-b17e974f0ee9ce4538e2910818d843f6.ctex"
+uid="uid://b78skl352vib0"
+path="res://.godot/imported/Egg.png-4abf7ca676f6cb3e03bcc8add5d8e253.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/CookedSausage.png"
-dest_files=["res://.godot/imported/CookedSausage.png-b17e974f0ee9ce4538e2910818d843f6.ctex"]
+source_file="res://assets/sprites/Egg.png"
+dest_files=["res://.godot/imported/Egg.png-4abf7ca676f6cb3e03bcc8add5d8e253.ctex"]
 
 [params]
 

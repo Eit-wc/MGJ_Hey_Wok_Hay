@@ -1,0 +1,39 @@
+[gd_scene load_steps=3 format=3 uid="uid://cfur1udtrhl18"]
+
+[ext_resource type="PackedScene" uid="uid://c60w1f7f1po12" path="res://assets/RetryButton/retry_button.tscn" id="1_vmstp"]
+[ext_resource type="AudioStream" uid="uid://ddn4khx7ep072" path="res://audio/bad_result.wav" id="2_mgauy"]
+
+[node name="SadFriedRice" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -24.5
+offset_right = 20.0
+offset_bottom = 24.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "SadFriedRice"
+
+[node name="RetryButton" parent="." instance=ExtResource("1_vmstp")]
+layout_mode = 0
+offset_left = 520.0
+offset_top = 362.0
+offset_right = 618.0
+offset_bottom = 419.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_mgauy")
+autoplay = true
+bus = &"SFX"

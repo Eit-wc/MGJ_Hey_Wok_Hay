@@ -25,6 +25,7 @@ var currentHeat = "notYet"
 
 func _on_cook_button_pressed() -> void:
     if cook_button.text == buttonText[0]:
+        $AudioStreamPlayer.play()
         var heatValue:float = h_slider.value
         print(heatValue)
         if heatValue < 45:
@@ -48,6 +49,7 @@ func _on_cook_button_pressed() -> void:
             n.shakeLv = 0
         $Score.text = "Score: %s"%[currentScore]
         Global.score[gameIndex] = currentScore
+        Global.heatLv[gameIndex] = h_slider.value
         cook_button.disabled = true
         
         await get_tree().create_timer(1).timeout

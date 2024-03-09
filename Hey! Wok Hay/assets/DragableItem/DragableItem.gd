@@ -33,6 +33,8 @@ func shakeTimeEvent():
     tween.tween_property(self, "position", current_pos + Vector2(0,-15),0.05  ) 
     tween.tween_property(self, "position",  current_pos   ,0.05  )
 # Called when the node enters the scene tree for the first time.
+
+var audio:AudioStreamPlayer = AudioStreamPlayer.new()
 func _ready() -> void:
     shakeTimer = Timer.new()
     shakeTimer.one_shot = false
@@ -40,13 +42,18 @@ func _ready() -> void:
     shakeTimer.wait_time = 10
     shakeTimer.timeout.connect(shakeTimeEvent)
     add_child(shakeTimer)
+    audio.stream = preload("res://audio/picking_item.wav")
+    audio.bus = "SFX"
+    add_child(audio)
     pass # Replace with function body.
    
 func _get_drag_data(at_position: Vector2) -> Variant:
     print("Drag")
+    audio.play()
     var c = Control.new()
     var dragItem:TextureRect = self.duplicate()
     c.add_child(dragItem)
+    dragItem.position = -0.5 * dragItem.size
     set_drag_preview(c)
     return self
     
