@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://b816mpbifmkth"]
+
+[ext_resource type="Texture2D" uid="uid://cnx552xk07k57" path="res://assets/sprites/CookedRice.png" id="1_kjnac"]
+[ext_resource type="Script" path="res://assets/DragableItem/DragableItem.gd" id="2_8yjan"]
+
+[node name="CookedRice" type="TextureRect"]
+custom_minimum_size = Vector2(95, 95)
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_kjnac")
+expand_mode = 1
+stretch_mode = 5
+script = ExtResource("2_8yjan")
+dragData = "CookedRice"

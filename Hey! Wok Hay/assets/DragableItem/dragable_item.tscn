@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://cphj0py80l8qu"]
+
+[ext_resource type="Texture2D" uid="uid://dxatvi7bkg6uu" path="res://assets/sprites/RawRice.png" id="1_6wmiq"]
+[ext_resource type="Script" path="res://assets/DragableItem/DragableItem.gd" id="2_ovrnj"]
+
+[node name="DragableItem" type="TextureRect"]
+custom_minimum_size = Vector2(95, 95)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_6wmiq")
+expand_mode = 1
+stretch_mode = 5
+script = ExtResource("2_ovrnj")
+dragData = "RawRice"
