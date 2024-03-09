@@ -14,6 +14,14 @@ config/name="Hey! Wok Hay"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[display]
+
+window/stretch/scale_mode="integer"
+
+[gui]
+
+theme/custom="res://default_theme.tres"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"

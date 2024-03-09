@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://b3eh1pae1gawp"]
+
+[ext_resource type="Texture2D" uid="uid://dfwbnkskhbh3a" path="res://assets/sprites/Water.png" id="1_cytm7"]
+[ext_resource type="Script" path="res://assets/DragableItem/DragableItem.gd" id="2_6geuq"]
+
+[node name="Water" type="TextureRect"]
+custom_minimum_size = Vector2(95, 95)
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_cytm7")
+expand_mode = 1
+stretch_mode = 5
+script = ExtResource("2_6geuq")
+dragData = "Water"

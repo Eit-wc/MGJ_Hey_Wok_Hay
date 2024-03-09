@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://dcee5awio02or"]
+[gd_scene load_steps=2 format=3 uid="uid://dcee5awio02or"]
+
+[ext_resource type="Script" path="res://Scene/StartMenu.gd" id="1_r7jwj"]
 
 [node name="StartMenu" type="Control"]
 layout_mode = 3
@@ -7,14 +9,47 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_r7jwj")
 
 [node name="Label" type="Label" parent="."]
-layout_mode = 0
-offset_right = 268.0
-offset_bottom = 112.0
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.318
+anchor_bottom = 0.269
+offset_right = -0.336029
+offset_bottom = -0.312012
+theme_override_font_sizes/font_size = 36
 text = "Hey! wok hey"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
+
+[node name="Start" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.096
+anchor_top = 0.367
+anchor_right = 0.181
+anchor_bottom = 0.415
+offset_left = -2.592
+offset_top = 73.184
+offset_right = 103.488
+offset_bottom = 99.08
+text = "LET'S COOK"
+
+[node name="Quit" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.12
+anchor_top = 0.559
+anchor_right = 0.161
+anchor_bottom = 0.606
+offset_left = 80.76
+offset_top = 32.768
+offset_right = 126.528
+offset_bottom = 59.312
+text = "QUIT"

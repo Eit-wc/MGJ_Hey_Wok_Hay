@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bfuiuiyudc0he"]
+
+[ext_resource type="Texture2D" uid="uid://cacgincvlofiu" path="res://assets/sprites/CookedSausage.png" id="1_je4iy"]
+[ext_resource type="Script" path="res://assets/DragableItem/DragableItem.gd" id="2_tirkc"]
+
+[node name="CookedSausage" type="TextureRect"]
+custom_minimum_size = Vector2(95, 95)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_je4iy")
+expand_mode = 1
+stretch_mode = 5
+script = ExtResource("2_tirkc")
