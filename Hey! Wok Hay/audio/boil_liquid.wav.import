@@ -2,13 +2,13 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://tjonkcdai4dh"
-path="res://.godot/imported/boil_oil.wav-c357df61ce648de94dffcf769081519e.sample"
+uid="uid://bnebm1h0k404a"
+path="res://.godot/imported/boil_liquid.wav-19ff2777e2ae072ef698d01a3ab5310f.sample"
 
 [deps]
 
-source_file="res://audio/boil_oil.wav"
-dest_files=["res://.godot/imported/boil_oil.wav-c357df61ce648de94dffcf769081519e.sample"]
+source_file="res://audio/boil_liquid.wav"
+dest_files=["res://.godot/imported/boil_liquid.wav-19ff2777e2ae072ef698d01a3ab5310f.sample"]
 
 [params]
 
