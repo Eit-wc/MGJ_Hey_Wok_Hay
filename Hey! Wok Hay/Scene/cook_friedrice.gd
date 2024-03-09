@@ -32,6 +32,8 @@ func oneSecInterrupt():
         # ============= End Game ==================
         timer.stop()
         eventTimer.stop()
+        cook_button.disabled = true
+        
         var score =  roundi(score_bar.value/100 * 50)
         scoreLabel.text = "Score: %s"%score
         Global.score[gameIndex] = score
@@ -59,8 +61,8 @@ func oneSecInterrupt():
 @onready var wok_bar: ProgressBar = $WokBar
 
 func eventTimerInterrupt():
-    var duration = randf_range(0.5,1.5)/heatScale
-    var targetProp = randfn(72.5,10)
+    var duration = randf_range(0.3,1.5)/heatScale
+    var targetProp = randfn(72.5,15)
     var tw:Tween = get_tree().create_tween().set_trans(Tween.TRANS_CUBIC)
     tw.tween_property(wok_bar,"value",targetProp,duration)
     
@@ -68,7 +70,7 @@ func eventTimerInterrupt():
     eventTimer.start()
     pass
 
-var scoreSpeedScale:float = 15.0
+var scoreSpeedScale:float = 14.0
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
     if cook_button.text != buttonText[1]:
