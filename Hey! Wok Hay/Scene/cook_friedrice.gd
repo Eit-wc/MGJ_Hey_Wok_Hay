@@ -7,6 +7,7 @@ class_name GameControlFryRice
 var currentScore:int = 0
 # Called when the node enters the scene tree for the first time.
 @onready var cook_button: Button = $CookButton
+
 @onready var time: Label = $Time
 
 @export var countDownTimer:int = 20
