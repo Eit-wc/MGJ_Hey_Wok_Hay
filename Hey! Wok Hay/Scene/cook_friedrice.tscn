@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://i5wn6bmuoai5"]
+[gd_scene load_steps=25 format=3 uid="uid://i5wn6bmuoai5"]
 
 [ext_resource type="Script" path="res://Scene/cook_friedrice.gd" id="1_agncw"]
 [ext_resource type="Texture2D" uid="uid://md1bwxice2mb" path="res://assets/sprites/BG.png" id="2_3ltch"]
@@ -8,12 +8,15 @@
 [ext_resource type="PackedScene" uid="uid://d0tbklfda1vmg" path="res://assets/Material/Sausage.tscn" id="5_7qjip"]
 [ext_resource type="Texture2D" uid="uid://u7eb4yrjjw1y" path="res://assets/sprites/Gas_stove.png" id="7_l46h1"]
 [ext_resource type="Script" path="res://assets/DragableItem/DropArea.gd" id="7_pnned"]
+[ext_resource type="Texture2D" uid="uid://bdm8gsr3ppsj3" path="res://assets/sprites/Frame_Low.png" id="8_1v7te"]
 [ext_resource type="Script" path="res://Scene/GuideLabel.gd" id="8_nyy5g"]
 [ext_resource type="Texture2D" uid="uid://myw2l1owrm31" path="res://assets/sprites/Wok.png" id="8_q3v0y"]
 [ext_resource type="Script" path="res://Scene/HSliderVChange.gd" id="8_vjar8"]
 [ext_resource type="AudioStream" uid="uid://djn2msq36fo8r" path="res://audio/wok_fry.wav" id="9_31dsc"]
 [ext_resource type="AudioStream" uid="uid://bbx3uxannyx2p" path="res://audio/less_heat.wav" id="9_g8ug0"]
+[ext_resource type="Texture2D" uid="uid://bss3yese51hag" path="res://assets/sprites/Frame_Medium.png" id="9_tuun0"]
 [ext_resource type="AudioStream" uid="uid://bau5tpm0jn7ve" path="res://audio/medium_heat.wav" id="10_5mqbn"]
+[ext_resource type="Texture2D" uid="uid://c3jyruvxq5aav" path="res://assets/sprites/Frame_High.png" id="10_knxxd"]
 [ext_resource type="AudioStream" uid="uid://3i2pd0t5dpoc" path="res://audio/over_heat.wav" id="11_nedro"]
 
 [sub_resource type="Animation" id="Animation_73cfp"]
@@ -240,12 +243,35 @@ texture = ExtResource("7_l46h1")
 expand_mode = 1
 stretch_mode = 5
 
+[node name="FLow" type="TextureRect" parent="Wok"]
+offset_left = -47.0
+offset_top = -49.0
+offset_right = 465.0
+offset_bottom = 463.0
+texture = ExtResource("8_1v7te")
+
+[node name="FMid" type="TextureRect" parent="Wok"]
+visible = false
+offset_left = -46.0
+offset_top = -46.0
+offset_right = 466.0
+offset_bottom = 466.0
+texture = ExtResource("9_tuun0")
+
+[node name="FHigh" type="TextureRect" parent="Wok"]
+visible = false
+offset_left = -50.0
+offset_top = -47.0
+offset_right = 462.0
+offset_bottom = 465.0
+texture = ExtResource("10_knxxd")
+
 [node name="Control" type="Control" parent="Wok"]
 anchors_preset = 0
-offset_left = 26.0
-offset_top = -130.0
-offset_right = 66.0
-offset_bottom = -90.0
+offset_left = 2.0
+offset_top = -158.0
+offset_right = 42.0
+offset_bottom = -118.0
 
 [node name="WokTexture" type="TextureRect" parent="Wok/Control"]
 layout_mode = 1
@@ -256,8 +282,8 @@ anchor_right = 0.956
 anchor_bottom = 0.6
 offset_left = -2.04
 offset_top = 12.8
-offset_right = 332.762
-offset_bottom = 347.0
+offset_right = 368.962
+offset_bottom = 383.8
 pivot_offset = Vector2(185, 185)
 texture = ExtResource("8_q3v0y")
 expand_mode = 1
