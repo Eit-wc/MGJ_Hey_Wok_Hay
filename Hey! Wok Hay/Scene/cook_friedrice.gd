@@ -71,14 +71,24 @@ func eventTimerInterrupt():
     pass
 
 var scoreSpeedScale:float = 14.0
+@onready var animation_player: AnimationPlayer = $Wok/Control/WokTexture/AnimationPlayer
+
+@onready var score_bar: ProgressBar = $ScoreBar
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
     if cook_button.text != buttonText[1]:
+        animation_player.play("RESET")
         return
+        
     if cook_button.button_pressed and 60<wok_bar.value and wok_bar.value<80:
         score_bar.value+=delta*scoreSpeedScale
+        animation_player.play("tossing")
     elif cook_button.button_pressed:
         score_bar.value-=delta*scoreSpeedScale*2
+        animation_player.play("RESET")
+    else:
+        animation_player.play("RESET")
+        
     pass
 
 @onready var h_slider: HSlider = $HSlider
@@ -96,10 +106,10 @@ func _on_cook_button_pressed() -> void:
             currentHeat = "mid"
         else:
             currentHeat = "high"
+        _setShakeLV(1)
         print("Cook at %s heat"%[currentHeat])
         Global.playSFX("res://audio/click_feedback_positive.wav")
         $AudioStreamPlayer.play()
-        _setShakeLV(1)
         timer.start()
         heatScale = mapTimer[currentHeat]
         eventTimerInterrupt()
@@ -112,15 +122,8 @@ func _on_retry_pressed() -> void:
     get_tree().reload_current_scene()
     pass # Replace with function body.
 
-@onready var materialContainer:HBoxContainer = $Wok/DropArea/HBoxContainer
+@onready var materialContainer:HBoxContainer = $Wok/Control/WokTexture/DropArea/HBoxContainer
 func _setShakeLV(lv:int):
     for n in materialContainer.get_children():
         n.shakeLv = lv
 
-@onready var score_bar: ProgressBar = $ScoreBar
-func _on_cook_button_button_down() -> void:
-    if cook_button.text != buttonText[1]:
-        return
-    if 60<wok_bar.value and wok_bar.value<80:
-        score_bar.value+=1
-    pass # Replace with function body.

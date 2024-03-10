@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://i5wn6bmuoai5"]
+[gd_scene load_steps=22 format=3 uid="uid://i5wn6bmuoai5"]
 
 [ext_resource type="Script" path="res://Scene/cook_friedrice.gd" id="1_agncw"]
 [ext_resource type="Texture2D" uid="uid://md1bwxice2mb" path="res://assets/sprites/BG.png" id="2_3ltch"]
@@ -9,13 +9,97 @@
 [ext_resource type="Texture2D" uid="uid://u7eb4yrjjw1y" path="res://assets/sprites/Gas_stove.png" id="7_l46h1"]
 [ext_resource type="Script" path="res://assets/DragableItem/DropArea.gd" id="7_pnned"]
 [ext_resource type="Script" path="res://Scene/GuideLabel.gd" id="8_nyy5g"]
+[ext_resource type="Texture2D" uid="uid://myw2l1owrm31" path="res://assets/sprites/Wok.png" id="8_q3v0y"]
 [ext_resource type="Script" path="res://Scene/HSliderVChange.gd" id="8_vjar8"]
 [ext_resource type="AudioStream" uid="uid://djn2msq36fo8r" path="res://audio/wok_fry.wav" id="9_31dsc"]
 [ext_resource type="AudioStream" uid="uid://bbx3uxannyx2p" path="res://audio/less_heat.wav" id="9_g8ug0"]
 [ext_resource type="AudioStream" uid="uid://bau5tpm0jn7ve" path="res://audio/medium_heat.wav" id="10_5mqbn"]
 [ext_resource type="AudioStream" uid="uid://3i2pd0t5dpoc" path="res://audio/over_heat.wav" id="11_nedro"]
 
+[sub_resource type="Animation" id="Animation_73cfp"]
+resource_name = "tossing"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-50, 0), Vector2(-70, -17.44), Vector2(0, 0), Vector2(50, 0), Vector2(60, -17.44)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 0.349066, 0.0, 0.0, -0.349066]
+}
+
+[sub_resource type="Animation" id="Animation_tcdfa"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_uhk66"]
+_data = {
+"RESET": SubResource("Animation_tcdfa"),
+"tossing": SubResource("Animation_73cfp")
+}
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6v2qg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dr37a"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(1, 0.376471, 0.247059, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 20.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jsjbk"]
+bg_color = Color(1, 0.772549, 0.333333, 1)
+corner_radius_top_left = 30
+corner_radius_bottom_left = 30
 
 [node name="CookFriedRice" type="Control"]
 layout_mode = 3
@@ -51,14 +135,14 @@ vertical_alignment = 1
 [node name="Time" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.391
-anchor_top = 0.117
-anchor_right = 0.535
-anchor_bottom = 0.201
-offset_left = 21.568
-offset_top = -10.816
-offset_right = 20.68
-offset_bottom = -11.248
+anchor_left = 0.41
+anchor_top = 0.1
+anchor_right = 0.553
+anchor_bottom = 0.184
+offset_left = -0.320038
+offset_top = 0.199997
+offset_right = -0.0560303
+offset_bottom = -0.23201
 text = "00:00"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -74,7 +158,7 @@ offset_left = -0.104004
 offset_top = -31.312
 offset_right = 0.303955
 offset_bottom = -0.0960007
-text = "(3) Cook chinese sausage fried rice"
+text = "(3) Cook fried rice"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -156,22 +240,49 @@ texture = ExtResource("7_l46h1")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="DropArea" type="PanelContainer" parent="Wok"]
+[node name="Control" type="Control" parent="Wok"]
+anchors_preset = 0
+offset_left = 26.0
+offset_top = -130.0
+offset_right = 66.0
+offset_bottom = -90.0
+
+[node name="WokTexture" type="TextureRect" parent="Wok/Control"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = -0.002
-anchor_top = 0.084
-anchor_right = 0.993
-anchor_bottom = 0.377
-offset_left = -0.18
-offset_top = -98.852
-offset_right = -0.130005
-offset_bottom = -98.931
+anchor_left = 0.051
+anchor_top = -0.32
+anchor_right = 0.956
+anchor_bottom = 0.6
+offset_left = -2.04
+offset_top = 12.8
+offset_right = 332.762
+offset_bottom = 347.0
+pivot_offset = Vector2(185, 185)
+texture = ExtResource("8_q3v0y")
+expand_mode = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Wok/Control/WokTexture"]
+libraries = {
+"": SubResource("AnimationLibrary_uhk66")
+}
+
+[node name="DropArea" type="PanelContainer" parent="Wok/Control/WokTexture"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.129
+anchor_top = 0.305
+anchor_right = 0.884
+anchor_bottom = 0.598
+offset_left = 0.140785
+offset_top = -0.155006
+offset_right = 0.0345154
+offset_bottom = 0.141983
 theme_override_styles/panel = SubResource("StyleBoxEmpty_6v2qg")
 script = ExtResource("7_pnned")
 maxMaterial = 4
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Wok/DropArea"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Wok/Control/WokTexture/DropArea"]
 layout_mode = 2
 theme_override_constants/separation = -50
 alignment = 1
@@ -285,6 +396,8 @@ offset_top = 385.08
 offset_right = 331.76
 offset_bottom = 53.168
 rotation = -1.5708
+theme_override_styles/background = SubResource("StyleBoxFlat_dr37a")
+theme_override_styles/fill = SubResource("StyleBoxFlat_jsjbk")
 value = 80.0
 show_percentage = false
 
@@ -295,7 +408,7 @@ width = 5.0
 default_color = Color(0.117647, 0.933333, 0, 1)
 
 [node name="Line2D2" type="Line2D" parent="WokBar"]
-position = Vector2(302, 40)
+position = Vector2(316, 40.0013)
 points = PackedVector2Array(0, -40, 0, 40)
 width = 5.0
 default_color = Color(0.117647, 0.933333, 0, 1)
@@ -314,7 +427,7 @@ offset_bottom = 136.0
 rotation = 1.5708
 theme_override_font_sizes/font_size = 20
 text = "Nice
-tassing!"
+tossing!"
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true

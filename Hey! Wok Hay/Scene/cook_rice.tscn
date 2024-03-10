@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://djc6fq8deef44"]
+[gd_scene load_steps=14 format=3 uid="uid://djc6fq8deef44"]
 
 [ext_resource type="Script" path="res://Scene/cook_rice.gd" id="1_lf4ue"]
 [ext_resource type="PackedScene" uid="uid://b816mpbifmkth" path="res://assets/Material/cooked_rice.tscn" id="2_4k6j5"]
@@ -9,6 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://bnebm1h0k404a" path="res://audio/boil_liquid.wav" id="6_4lpa4"]
 [ext_resource type="Script" path="res://Scene/HSliderVChange.gd" id="6_7gfka"]
 [ext_resource type="AudioStream" uid="uid://bbx3uxannyx2p" path="res://audio/less_heat.wav" id="7_6d7bl"]
+[ext_resource type="Texture2D" uid="uid://myw2l1owrm31" path="res://assets/sprites/Wok.png" id="7_q8y5y"]
 [ext_resource type="AudioStream" uid="uid://bau5tpm0jn7ve" path="res://audio/medium_heat.wav" id="8_e1n17"]
 [ext_resource type="AudioStream" uid="uid://3i2pd0t5dpoc" path="res://audio/over_heat.wav" id="9_43gbq"]
 
@@ -119,6 +120,20 @@ texture = ExtResource("5_mha0p")
 expand_mode = 1
 stretch_mode = 5
 
+[node name="WokTexture" type="TextureRect" parent="Wok"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.051
+anchor_top = -0.32
+anchor_right = 0.956
+anchor_bottom = 0.6
+offset_left = 0.0899982
+offset_top = -0.0400238
+offset_right = 0.039978
+offset_bottom = 0.200058
+texture = ExtResource("7_q8y5y")
+expand_mode = 1
+
 [node name="DropArea" type="PanelContainer" parent="Wok"]
 layout_mode = 1
 anchors_preset = -1
@@ -126,10 +141,10 @@ anchor_left = 0.129
 anchor_top = 0.146
 anchor_right = 0.82
 anchor_bottom = 0.402
-offset_left = 0.109997
-offset_top = -122.838
-offset_right = -0.200012
-offset_bottom = -123.006
+offset_left = 13.11
+offset_top = -57.838
+offset_right = 12.8
+offset_bottom = -58.006
 theme_override_styles/panel = SubResource("StyleBoxEmpty_6v2qg")
 script = ExtResource("4_xbnyo")
 

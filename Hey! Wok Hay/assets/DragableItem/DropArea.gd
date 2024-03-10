@@ -2,7 +2,7 @@ extends PanelContainer
 
 @export var maxMaterial:int = 2 
 var countMaterial = 0
-@onready var cook_button: Button = $"../../CookButton"
+@onready var cook_button: Button = $"../../../../CookButton"
 @onready var parent:TextureRect = get_parent()
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

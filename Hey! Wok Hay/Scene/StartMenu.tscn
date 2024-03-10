@@ -32,12 +32,14 @@ grow_vertical = 2
 
 [node name="TextureRect" type="TextureRect" parent="Background2"]
 modulate = Color(0.870588, 0.870588, 0.866667, 1)
+layout_mode = 0
 offset_right = 415.0
 offset_bottom = 670.0
 texture = SubResource("CanvasTexture_jniad")
 
 [node name="TextureRect2" type="TextureRect" parent="Background2"]
 modulate = Color(0.870588, 0.870588, 0.866667, 1)
+layout_mode = 0
 offset_left = 407.0
 offset_right = 1165.0
 offset_bottom = 670.0

@@ -1,30 +1,32 @@
 extends TextureRect
 @onready var burn_color:Color = Color(0.25,0.25,0.25,1)
-@export var shakeLv:int = 0 :
-    set (lv):
-        shakeLv = lv
-        if not is_instance_valid(shakeTimer):
-            return
-        if shakeLv == 0:
-            # not shake
-            shakeTimer.wait_time = 100
-            shakeTimer.stop()
-        elif shakeLv == 1:
-            shakeTimer.wait_time = 0.5
-            shakeTimer.start()
-        elif shakeLv == 2:
-            shakeTimer.wait_time = 0.2
-            shakeTimer.start()
-        elif shakeLv == 3:
-            shakeTimer.wait_time = 0.1
-        elif shakeLv == 4:
-            #burn
-            shakeTimer.wait_time = 10
-            shakeTimer.stop()
-            var tween = get_tree().create_tween()
-            tween.tween_property(self,"modulate",burn_color,0.5)
-    get:
-        return shakeLv
+@export var shakeLv:int = 0 : set = setShakelv, get = getShakelv
+
+func setShakelv(lv):
+    shakeLv = lv
+    if not is_instance_valid(shakeTimer):
+        return
+    if shakeLv == 0:
+        # not shake
+        shakeTimer.wait_time = 100
+        shakeTimer.stop()
+    elif shakeLv == 1:
+        shakeTimer.wait_time = 0.5
+        shakeTimer.start()
+    elif shakeLv == 2:
+        shakeTimer.wait_time = 0.2
+        shakeTimer.start()
+    elif shakeLv == 3:
+        shakeTimer.wait_time = 0.1
+    elif shakeLv == 4:
+        #burn
+        shakeTimer.wait_time = 10
+        shakeTimer.stop()
+        var tween = get_tree().create_tween()
+        tween.tween_property(self,"modulate",burn_color,0.5)
+        
+func getShakelv() -> int:
+    return shakeLv
     
 var shakeTimer:Timer
 func shakeTimeEvent():
