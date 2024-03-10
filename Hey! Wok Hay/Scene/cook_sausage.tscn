@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://b4r5nv81oun8v"]
+[gd_scene load_steps=13 format=3 uid="uid://b4r5nv81oun8v"]
 
 [ext_resource type="Script" path="res://Scene/cook_rice.gd" id="1_vfslk"]
+[ext_resource type="Texture2D" uid="uid://md1bwxice2mb" path="res://assets/sprites/BG.png" id="2_ej7sa"]
 [ext_resource type="PackedScene" uid="uid://d0tbklfda1vmg" path="res://assets/Material/Sausage.tscn" id="2_ws8bx"]
 [ext_resource type="PackedScene" uid="uid://c2insta4lumlj" path="res://assets/Material/oil.tscn" id="3_t5oh5"]
-[ext_resource type="Texture2D" uid="uid://myw2l1owrm31" path="res://assets/sprites/Wok.png" id="4_b2fau"]
 [ext_resource type="Script" path="res://assets/DragableItem/DropArea.gd" id="5_21j8h"]
+[ext_resource type="Texture2D" uid="uid://u7eb4yrjjw1y" path="res://assets/sprites/Gas_stove.png" id="5_jedgw"]
 [ext_resource type="Script" path="res://Scene/HSliderVChange.gd" id="6_d2k4l"]
 [ext_resource type="AudioStream" uid="uid://bbx3uxannyx2p" path="res://audio/less_heat.wav" id="7_054ps"]
 [ext_resource type="AudioStream" uid="uid://bau5tpm0jn7ve" path="res://audio/medium_heat.wav" id="8_g0sh8"]
@@ -24,6 +25,16 @@ script = ExtResource("1_vfslk")
 buttonText = Array[String](["Deep Fry!", "Done"])
 gameIndex = 1
 nextScene = "res://Scene/cook_friedrice.tscn"
+
+[node name="Background" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0.196078)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_ej7sa")
 
 [node name="Score" type="Label" parent="."]
 layout_mode = 1
@@ -97,12 +108,12 @@ anchor_top = 0.19
 anchor_right = 0.764
 anchor_bottom = 0.812
 offset_left = 18.096
-offset_top = -21.12
+offset_top = 65.88
 offset_right = -104.128
-offset_bottom = -21.176
+offset_bottom = 65.824
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("4_b2fau")
+texture = ExtResource("5_jedgw")
 expand_mode = 1
 stretch_mode = 5
 
@@ -114,9 +125,9 @@ anchor_top = 0.146
 anchor_right = 0.82
 anchor_bottom = 0.402
 offset_left = 0.109997
-offset_top = 0.161995
+offset_top = -132.838
 offset_right = -0.200012
-offset_bottom = -0.0059967
+offset_bottom = -133.006
 theme_override_styles/panel = SubResource("StyleBoxEmpty_6v2qg")
 script = ExtResource("5_21j8h")
 
@@ -125,10 +136,16 @@ layout_mode = 2
 alignment = 1
 
 [node name="HSlider" type="HSlider" parent="."]
-offset_left = 295.0
-offset_top = 536.0
-offset_right = 824.0
-offset_bottom = 562.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.256
+anchor_top = 0.827
+anchor_right = 0.715
+anchor_bottom = 0.867
+offset_left = 0.0879822
+offset_top = 0.104004
+offset_right = 0.319946
+offset_bottom = 0.18396
 step = 25.0
 tick_count = 5
 script = ExtResource("6_d2k4l")
