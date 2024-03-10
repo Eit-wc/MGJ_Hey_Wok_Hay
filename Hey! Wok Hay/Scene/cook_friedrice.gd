@@ -97,6 +97,9 @@ func _on_cook_button_pressed() -> void:
         else:
             currentHeat = "high"
         print("Cook at %s heat"%[currentHeat])
+        Global.playSFX("res://audio/click_feedback_positive.wav")
+        $AudioStreamPlayer.play()
+        _setShakeLV(1)
         timer.start()
         heatScale = mapTimer[currentHeat]
         eventTimerInterrupt()
@@ -105,6 +108,7 @@ func _on_cook_button_pressed() -> void:
         cook_button.text = buttonText[1]
     
 func _on_retry_pressed() -> void:
+    Global.playSFX("res://audio/click_feedback_negative.wav")
     get_tree().reload_current_scene()
     pass # Replace with function body.
 

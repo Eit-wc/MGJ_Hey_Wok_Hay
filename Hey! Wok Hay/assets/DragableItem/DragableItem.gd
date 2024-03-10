@@ -28,6 +28,7 @@ extends TextureRect
     
 var shakeTimer:Timer
 func shakeTimeEvent():
+    shakeAudio.play()
     var current_pos:Vector2 = position
     var tween = get_tree().create_tween().set_trans(Tween.TRANS_CUBIC)
     tween.tween_property(self, "position", current_pos + Vector2(0,-15),0.05  ) 
@@ -35,6 +36,7 @@ func shakeTimeEvent():
 # Called when the node enters the scene tree for the first time.
 
 var audio:AudioStreamPlayer = AudioStreamPlayer.new()
+var shakeAudio:AudioStreamPlayer = AudioStreamPlayer.new()
 func _ready() -> void:
     shakeTimer = Timer.new()
     shakeTimer.one_shot = false
@@ -45,6 +47,9 @@ func _ready() -> void:
     audio.stream = preload("res://audio/picking_item.wav")
     audio.bus = "SFX"
     add_child(audio)
+    shakeAudio.stream = preload("res://audio/food_shake.wav")
+    shakeAudio.bus = "SFX"
+    add_child(shakeAudio)
     pass # Replace with function body.
    
 func _get_drag_data(at_position: Vector2) -> Variant:
